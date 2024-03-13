@@ -19,6 +19,7 @@
             <div class="mb-4">
                 <label for="image" class="block text-sm font-medium">Image:</label>
                 <input type="file" name="image" id="image"
+                    accept="image/jpeg, image/png, image/jpg, image/gif, image/svg"
                     class="mt-1 p-2 w-full border rounded-md text-white">
             </div>
 
