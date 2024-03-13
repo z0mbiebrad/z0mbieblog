@@ -2,7 +2,7 @@
     <div class="container mx-auto my-8 texwhite">
         <h1 class="text-3xl font-semibold text-white mb-6">Create a New Blog Post</h1>
 
-        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             @if (session('success'))

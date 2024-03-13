@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,8 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/create/posts', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/create/posts', [PostController::class, 'store'])->name('posts.store');
 });
 
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    // Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/upload-image', [AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin/upload-image', [AdminController::class, 'store'])->name('admin.store');
+    // Add other admin routes as needed
+});
 require __DIR__.'/auth.php';
