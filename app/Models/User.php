@@ -38,4 +38,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin()
+    {
+        // dd('admin');
+        // dd($this->role);
+        // if ($this->role === 'admin') {
+        //     // dd('admin');
+        //     return true;
+        // }
+        return $this->role === 'admin';
+    }
 }
