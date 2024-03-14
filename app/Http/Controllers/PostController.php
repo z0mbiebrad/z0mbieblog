@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 
 class PostController extends Controller
 {
@@ -13,6 +11,4 @@ class PostController extends Controller
         $posts = Post::all();
         return view('posts.index', compact('posts'));
     }
-
-
 }
