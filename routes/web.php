@@ -23,6 +23,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     // Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/upload-image', [AdminController::class, 'create'])->name('admin.create');
     Route::post('/admin/upload-image', [AdminController::class, 'store'])->name('admin.store');
+    Route::delete('/admin/{post}', [AdminController::class, 'destroy'])->name('admin.destroy');
     // Add other admin routes as needed
 });
 require __DIR__.'/auth.php';

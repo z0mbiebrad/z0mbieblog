@@ -1,13 +1,13 @@
 <x-app-layout>
-    <div class="container mx-auto my-8 texwhite">
+    <div class="container mx-auto my-8 text-white">
         <h1 class="text-3xl font-semibold text-white mb-6">Create a New Blog Post</h1>
 
         <form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            @if (session('success'))
-                <div class="bg-green-500 text-white p-4 mb-4 rounded-md">
-                    {{ session('success') }}
+            @if ($message = session('error') ?: session('success'))
+                <div class="text-white">
+                    {{ $message }}
                 </div>
             @endif
 
@@ -24,7 +24,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="body" class="block text-sm font-medium">Content (Markdown):</label>
+                <label for="body" class="block text-sm font-medium">Body:</label>
                 <textarea name="body" id="body" class="mt-1 p-2 w-full border rounded-md text-black" rows="8"></textarea>
             </div>
 
