@@ -18,11 +18,11 @@
                             {{ $post->title }}
                         </h3>
                         <span class="text-xs dark:text-gray-400">{{ $post->created_at->format('F d, Y') }}</span>
-                        <p>{{ $post->body }}</p>
+                        <p>{!! $post->body !!}</p>
                     </div>
                 </a>
                 @can('admin')
-                    <form action="{{ route('admin.destroy', $post) }}" method="post">
+                    <form action="{{ route('post.destroy', $post) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>

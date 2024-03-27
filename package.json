@@ -14,5 +14,9 @@
         "postcss": "^8.4.35",
         "tailwindcss": "^3.4.1",
         "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "jquery": "^3.7.1",
+        "simplemde": "^1.11.2"
     }
 }

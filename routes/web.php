@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
@@ -21,9 +23,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'can:admin'])->group(function () {
     // Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/admin/upload-image', [AdminController::class, 'create'])->name('admin.create');
-    Route::post('/admin/upload-image', [AdminController::class, 'store'])->name('admin.store');
-    Route::delete('/admin/{post}', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::get('/admin/upload-image', [ImageController::class, 'create'])->name('image.create');
+    Route::post('/admin/upload-image', [ImageController::class, 'store'])->name('image.store');
+    Route::get('/admin/upload-post', [PostController::class, 'create'])->name('post.create');
+    Route::post('/admin/upload-post', [PostController::class, 'store'])->name('post.store');
+    Route::delete('/admin/{post}', [PostController::class, 'destroy'])->name('post.destroy');
     // Add other admin routes as needed
 });
+
 require __DIR__.'/auth.php';

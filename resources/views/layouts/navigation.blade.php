@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-600 border-b border-gray-100 dark:border-gray-100 fixed w-full top-0">
+<nav x-data="{ open: false }" class="bg-white dark:bg-gray-600 border-b border-gray-100 dark:border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="">
                     <a href="/posts">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <x-application-logo class="block h-16 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
@@ -16,7 +16,7 @@
                         <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                             {{ __('Posts') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('admin.create')" :active="request()->routeIs('admin.create')">
+                        <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                             {{ __('Upload Post') }}
                         </x-nav-link>
                     </div>
@@ -94,7 +94,7 @@
         <!-- Responsive Navigation Menu -->
         <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('admin.create')" :active="request()->routeIs('admin.create')">
+                <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                     {{ __('Create Poste') }}
                 </x-responsive-nav-link>
             </div>
