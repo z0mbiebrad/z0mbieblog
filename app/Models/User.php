@@ -41,12 +41,6 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        // dd('admin');
-        // dd($this->role);
-        // if ($this->role === 'admin') {
-        //     // dd('admin');
-        //     return true;
-        // }
         return $this->role === 'admin';
     }
 }

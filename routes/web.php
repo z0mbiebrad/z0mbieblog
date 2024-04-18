@@ -23,7 +23,6 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'can:admin'])->group(function () {
     // Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/admin/upload-image', [ImageController::class, 'create'])->name('image.create');
     Route::post('/admin/upload-image', [ImageController::class, 'store'])->name('image.store');
     Route::get('/admin/upload-post', [PostController::class, 'create'])->name('post.create');
     Route::post('/admin/upload-post', [PostController::class, 'store'])->name('post.store');
