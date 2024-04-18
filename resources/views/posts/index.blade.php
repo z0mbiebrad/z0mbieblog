@@ -1,6 +1,7 @@
 <style>
     img {
         margin: auto;
+        width: 500px;
     }
 </style>
 
