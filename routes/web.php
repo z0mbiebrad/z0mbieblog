@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'can:admin'])->group(function () {
     // Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/admin/upload-image', [ImageController::class, 'store'])->name('image.store');
+    Route::delete('/admin/upload-image', [ImageController::class, 'destroy'])->name('image.destroy');
     Route::get('/admin/upload-post', [PostController::class, 'create'])->name('post.create');
     Route::post('/admin/upload-post', [PostController::class, 'store'])->name('post.store');
     Route::delete('/admin/{post}', [PostController::class, 'destroy'])->name('post.destroy');

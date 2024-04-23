@@ -13,21 +13,20 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all()->sortDesc();
-        $images = Image::all();
+        $images = Image::all()->sortDesc();
 
         return view('posts.index', compact(['posts', 'images']));
     }
 
     public function store(Request $request)
     {
-        $parsedown = new Parsedown();
-        $htmlContent = $parsedown->text($request->input('body'));
-
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
         ]);
 
+        $parsedown = new Parsedown();
+        $htmlContent = $parsedown->text($validatedData['body']);
 
         Post::create([
             'title' => $validatedData['title'],
