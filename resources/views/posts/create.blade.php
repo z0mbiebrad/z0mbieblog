@@ -65,7 +65,7 @@
 
                 <div class="mb-4">
                     <label for="body" class="block text-sm font-medium">Body:</label>
-                    <textarea name="body" id="body" class="mt-1 p-2 w-full border rounded-md text-black" required rows="8"></textarea>
+                    <textarea name="body" id="body" class="mt-1 p-2 w-full border rounded-md text-black" required rows="8">{{ old('body') }}</textarea>
                 </div>
 
                 <button type="submit"
@@ -85,4 +85,23 @@
         document.execCommand('copy');
         document.body.removeChild(textArea);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var bodyTextarea = document.getElementById('title');
+        var savedContent = localStorage.getItem('blogTitle');
+        bodyTextarea.value = savedContent;
+        bodyTextarea.addEventListener('input', function() {
+            localStorage.setItem('blogTitle', this.value);
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var titleTextarea = document.getElementById('body');
+        var savedContent = localStorage.getItem('blogBody');
+        titleTextarea.value = savedContent;
+        titleTextarea.addEventListener('input', function() {
+            localStorage.setItem('blogBody', this.value);
+        });
+    });
+
 </script>
