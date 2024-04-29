@@ -52,11 +52,13 @@
         </form>
 
         @if (!empty($images[0]))
-            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">Delete
-                Selected</button>
             <form action="{{ route('image.destroy') }}" method="post">
                 @csrf
                 @method('DELETE')
+
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                    Delete Selected
+                </button>
 
                 <div class="mb-4 flex flex-wrap">
                     @foreach ($images as $image)
@@ -71,7 +73,6 @@
                         </div>
                     @endforeach
                 </div>
-
             </form>
         @endif
     </div>
