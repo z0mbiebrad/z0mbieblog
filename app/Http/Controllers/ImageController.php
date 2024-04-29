@@ -37,20 +37,14 @@ class ImageController extends Controller
 
         $selectedImages = $validatedData['selected_images'];
 
-        try {
+        if ($selectedImages) {
             foreach ($selectedImages as $imageId) {
                 $image = Image::find($imageId);
-                Storage::disk('public')->delete($image->image_path);
                 $image->delete();
             }
-        } catch (\Exception $e) {
-            throw ValidationException::withMessages([
-                'email' => 'This email could not be added to our newsletter list.'
-            ]);
+        } else {
+            return redirect()->route('post.create')->with('error', 'Failed to upload one or more images.');
         }
-
-
- 
 
         return redirect()->route('post.create')->with('success', 'Selected images deleted successfully.');
     }
