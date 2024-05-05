@@ -48,9 +48,22 @@ class PostController extends Controller
         return view('posts.edit', compact('post'));
     }
     
-    public function update()
+    public function update(Request $request, Post $post)
     {
-        return ('test');
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+        ]);
+
+        // Update the post with the validated data
+        $post->update([
+            'title' => $validatedData['title'],
+            'body' => $validatedData['body'],
+        ]);
+
+        // Redirect back to the post edit page with a success message
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)

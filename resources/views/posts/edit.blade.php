@@ -3,7 +3,7 @@
         <h1 class="text-3xl font-semibold text-white mb-6">Create a New Blog Post</h1>
 
         <div>
-            <form action="{{ route('post.update') }}" method="post">
+            <form action="{{ route('post.update', $post) }}" method="post">
                 @csrf
                 @method('PUT')
 

@@ -28,7 +28,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/admin/upload-post', [PostController::class, 'create'])->name('post.create');
     Route::post('/admin/upload-post', [PostController::class, 'store'])->name('post.store');
     Route::get('admin/edit/{post}', [PostController::class, 'edit'])->name('post.edit');
-    Route::get('admin/edit/{post}', [PostController::class, 'update'])->name('post.update');
+    Route::put('admin/update/{post}', [PostController::class, 'update'])->name('post.update');
     Route::delete('/admin/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 });
 
