@@ -18,6 +18,13 @@ class PostController extends Controller
         return view('posts.index', compact(['posts', 'images']));
     }
 
+    public function create()
+    {
+        $images = Image::all();
+
+        return view('posts.create', compact('images'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -36,6 +43,16 @@ class PostController extends Controller
         return redirect()->route('post.create')->with('success', 'Blog post created successfully!');
     }
 
+    public function edit(Post $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
+    
+    public function update()
+    {
+        return ('test');
+    }
+
     public function destroy(Post $post)
     {
         $this->authorize('delete', $post);
@@ -47,12 +64,5 @@ class PostController extends Controller
         }
 
         return redirect()->route('posts.index')->with('error', 'An error occurred while deleting the post.');
-    }
-
-    public function create()
-    {
-        $images = Image::all();
-
-        return view('posts.create', compact('images'));
     }
 }

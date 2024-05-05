@@ -43,9 +43,9 @@
         <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4 flex">
+            <div class="mb-4 flex justify-between">
                 <input type="file" name="images[]" id="images" multiple
-                    accept="image/jpeg, image/png, image/jpg, image/gif, image/svg" class="mt-1 p-2" required>
+                    accept="image/jpeg, image/png, image/jpg, image/gif, image/svg" class="mt-1 p-2 w-3/5" required>
                 <button type="submit" class="bg-gray-500 text-white px-4 rounded-md hover:bg-gray-600">Upload
                     Images</button>
             </div>
