@@ -23,5 +23,30 @@
                     Post</button>
             </form>
         </div>
+
+        <div class="mb-4 flex flex-wrap">
+            @foreach ($images as $image)
+                <div class="basis-1/4 box-content flex relative p-2">
+                    <input type="checkbox" name="selected_images[]" id="image{{ $loop->iteration }}"
+                        value="{{ $image->id }}" class="absolute top-2 left-2"
+                        onclick="copyToClipboard('![image]({{ asset('storage/' . $image->image_path) }})')">
+
+                    <label for="image{{ $loop->iteration }}">
+                        <img src="{{ asset('storage/' . $image->image_path) }}" class="">
+                    </label>
+                </div>
+            @endforeach
+        </div>
     </div>
 </x-app-layout>
+
+<script>
+    function copyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    }
+</script>

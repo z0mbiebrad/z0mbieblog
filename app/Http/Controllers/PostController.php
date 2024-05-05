@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Parsedown;
 
@@ -43,9 +42,11 @@ class PostController extends Controller
         return redirect()->route('post.create')->with('success', 'Blog post created successfully!');
     }
 
-    public function edit(Post $post)
+    public function edit(Post $post, Image $image)
     {
-        return view('posts.edit', compact('post'));
+        $images = $image::all();
+
+        return view('posts.edit', compact(['post', 'images']));
     }
     
     public function update(Request $request, Post $post)
@@ -56,10 +57,13 @@ class PostController extends Controller
             'body' => 'required|string',
         ]);
 
+        $parsedown = new Parsedown();
+        $htmlContent = $parsedown->text($validatedData['body']);
+
         // Update the post with the validated data
         $post->update([
             'title' => $validatedData['title'],
-            'body' => $validatedData['body'],
+            'body' => $htmlContent,
         ]);
 
         // Redirect back to the post edit page with a success message
