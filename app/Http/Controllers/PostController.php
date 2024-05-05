@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Parsedown;
 
@@ -16,6 +15,13 @@ class PostController extends Controller
         $images = Image::all()->sortDesc();
 
         return view('posts.index', compact(['posts', 'images']));
+    }
+
+    public function create()
+    {
+        $images = Image::all();
+
+        return view('posts.create', compact('images'));
     }
 
     public function store(Request $request)
@@ -36,6 +42,34 @@ class PostController extends Controller
         return redirect()->route('post.create')->with('success', 'Blog post created successfully!');
     }
 
+    public function edit(Post $post, Image $image)
+    {
+        $images = $image::all();
+
+        return view('posts.edit', compact(['post', 'images']));
+    }
+    
+    public function update(Request $request, Post $post)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+        ]);
+
+        $parsedown = new Parsedown();
+        $htmlContent = $parsedown->text($validatedData['body']);
+
+        // Update the post with the validated data
+        $post->update([
+            'title' => $validatedData['title'],
+            'body' => $htmlContent,
+        ]);
+
+        // Redirect back to the post edit page with a success message
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
+    }
+
     public function destroy(Post $post)
     {
         $this->authorize('delete', $post);
@@ -47,12 +81,5 @@ class PostController extends Controller
         }
 
         return redirect()->route('posts.index')->with('error', 'An error occurred while deleting the post.');
-    }
-
-    public function create()
-    {
-        $images = Image::all();
-
-        return view('posts.create', compact('images'));
     }
 }
