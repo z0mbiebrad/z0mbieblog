@@ -11,36 +11,42 @@
 
     @media (max-width: 640px) {
         .img {
+            margin: auto;
             max-width: 100%;
         }
     }
 
     @media (min-width: 641px) and (max-width: 767px) {
         .img {
+            margin: auto;
             max-width: 80%;
         }
     }
 
     @media (min-width: 768px) and (max-width: 1023px) {
         .img {
+            margin: auto;
             max-width: 70%;
         }
     }
 
     @media (min-width: 1024px) and (max-width: 1279px) {
         .img {
+            margin: auto;
             max-width: 50%;
         }
     }
 
     @media (min-width: 1280px) and (max-width: 1535px) {
         .img {
+            margin: auto;
             max-width: 40%;
         }
     }
 
     @media (min-width: 1536px) {
         .img {
+            margin: auto;
             max-width: 30%;
         }
     }
