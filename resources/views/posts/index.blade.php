@@ -63,7 +63,7 @@
     @endif
     <section class="dark:bg-gray-950 dark:text-gray-100">
         @foreach ($posts as $post)
-            <div class="p-6 space-y-2 md:w-4/5 lg:w-3/5 mx-auto mb-6 bg-slate-900 rounded-lg">
+            <div class="p-6 space-y-2 md:w-11/12 lg:w-4/5 2xl:w-3/5 mx-auto mb-6 bg-slate-900 rounded-lg">
                 @can('admin')
                     <div class="flex self-center">
                         <form action="{{ route('post.destroy', $post) }}" method="post">
