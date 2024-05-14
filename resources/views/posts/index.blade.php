@@ -20,7 +20,7 @@
         @foreach ($posts as $post)
             <div class="p-6 space-y-2 w-3/5 mx-auto mb-6 bg-slate-900 rounded-lg">
                 @can('admin')
-                    <div class="flex self-center gap-x-2">
+                    <div class="flex self-center gap-x-2 justify-between">
                         <form action="{{ route('post.destroy', $post) }}" method="post">
                             @csrf
                             @method('DELETE')
