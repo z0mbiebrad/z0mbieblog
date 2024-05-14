@@ -1,7 +1,7 @@
 <style>
     .img {
         margin: auto;
-        max-width: 66%;
+        max-width: 75%;
     }
 
     p {
@@ -14,13 +14,38 @@
             max-width: 100%;
         }
     }
-    @media (min-width: 1280px) {
+
+    @media (min-width: 641px) and (max-width: 767px) {
         .img {
-        margin: auto;
-        max-width: 40%;
+            max-width: 80%;
+        }
     }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .img {
+            max-width: 70%;
+        }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1279px) {
+        .img {
+            max-width: 50%;
+        }
+    }
+
+    @media (min-width: 1280px) and (max-width: 1535px) {
+        .img {
+            max-width: 40%;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .img {
+            max-width: 30%;
+        }
     }
 </style>
+
 
 <x-app-layout>
     @if ($message = session('error') ?: session('success'))
@@ -30,7 +55,7 @@
     @endif
     <section class="dark:bg-gray-950 dark:text-gray-100">
         @foreach ($posts as $post)
-            <div class="p-6 space-y-2 w-3/5 mx-auto mb-6 bg-slate-900 rounded-lg">
+            <div class="p-6 space-y-2 sm:w-3/5 mx-auto mb-6 bg-slate-900 rounded-lg">
                 @can('admin')
                     <div class="flex self-center">
                         <form action="{{ route('post.destroy', $post) }}" method="post">
