@@ -1,1 +1,1 @@
-<img src="/images/radioactive.jpeg" alt="Home" {{$attributes->merge(['class' => 'cursor-pointer mx-auto h-16'])}}>
+<img src="/images/z0mbie.png" alt="Home" {{$attributes->merge(['class' => 'cursor-pointer mx-auto h-16'])}}>
