@@ -19,12 +19,7 @@
         <div>
             <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" id="post.store">
                 @csrf
-                <div class="mb-4">
-                    <label for="title" class="block text-sm font-medium pt-6">Title:</label>
-                    <input type="text" name="title" id="title"
-                        class="mt-1 p-2 w-full border rounded-md text-black" required>
-                </div>
-
+                
                 <div class="mb-4">
                     <label for="body" class="block text-sm font-medium">Body:</label>
                     <textarea name="body" id="body" class="mt-1 p-2 w-full border rounded-md text-black" required rows="8">{{ old('body') }}</textarea>
