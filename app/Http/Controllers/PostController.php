@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Parsedown;
 
 class PostController extends Controller
 {
@@ -27,16 +26,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:255',
             'body' => 'required',
         ]);
-
-        $parsedown = new Parsedown();
-        $htmlContent = $parsedown->text($validatedData['body']);
-
+        
         Post::create([
-            'title' => $validatedData['title'],
-            'body' => $htmlContent,
+            'markdown' => $validatedData['body'],
         ]);
 
         return redirect()->route('post.create')->with('success', 'Blog post created successfully!');
@@ -53,17 +47,12 @@ class PostController extends Controller
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
             'body' => 'required|string',
         ]);
 
-        $parsedown = new Parsedown();
-        $htmlContent = $parsedown->text($validatedData['body']);
-
         // Update the post with the validated data
         $post->update([
-            'title' => $validatedData['title'],
-            'body' => $htmlContent,
+            'markdown' => $validatedData['body'],
         ]);
 
         // Redirect back to the post edit page with a success message
