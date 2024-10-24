@@ -6,6 +6,9 @@
         </div>
     @endif
 
+    <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me
+    </h2>
+    <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
     @foreach ($posts as $post)
         <article class="transparent py-24 sm:py-32 w-5/6 sm:w-4/5 max-w-5xl mx-auto">
             <div class="mx-auto max-w-7xl lg:px-8">
@@ -26,9 +29,6 @@
                     </div>
                 @endcan
                 <div class="mx-auto max-w-2xl">
-                    <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me
-                    </h2>
-                    <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
                     <div class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
                         <article class="flex max-w-xl flex-col items-start justify-between">
                             <div class="flex items-center gap-x-4 text-xs">
