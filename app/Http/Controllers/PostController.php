@@ -56,7 +56,7 @@ class PostController extends Controller
         ]);
 
         // Redirect back to the post edit page with a success message
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
+        return redirect()->route('post.index')->with('success', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)
@@ -64,11 +64,11 @@ class PostController extends Controller
         $this->authorize('delete', $post);
 
         if ($post->delete()) {
-            return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+            return redirect()->route('post.index')->with('success', 'Post deleted successfully.');
         } else {
-            return redirect()->route('posts.index')->with('error', 'Failed to delete post.');
+            return redirect()->route('post.index')->with('error', 'Failed to delete post.');
         }
 
-        return redirect()->route('posts.index')->with('error', 'An error occurred while deleting the post.');
+        return redirect()->route('post.index')->with('error', 'An error occurred while deleting the post.');
     }
 }

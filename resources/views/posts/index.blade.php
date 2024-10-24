@@ -5,12 +5,13 @@
             {{ $message }}
         </div>
     @endif
-
-    <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me
-    </h2>
-    <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
-    @foreach ($posts as $post)
-        <article class="transparent py-24 sm:py-32 w-5/6 sm:w-4/5 max-w-5xl mx-auto">
+    <article class="transparent py-24 sm:py-32 w-5/6 sm:w-4/5 max-w-5xl mx-auto">
+        <div>
+            <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me
+            </h2>
+            <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
+        </div>
+        @foreach ($posts as $post)
             <div class="mx-auto max-w-7xl lg:px-8">
                 @can('admin')
                     <div class="flex self-center justify-end space-x-4 mb-6">
@@ -53,6 +54,6 @@
                     </div>
                 </div>
             </div>
-        </article>
-    @endforeach
+        @endforeach
+    </article>
 </x-app-layout>
