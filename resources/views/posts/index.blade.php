@@ -11,26 +11,27 @@
             </h2>
             <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
         </div>
-        @foreach ($posts as $post)
-            <div class="mx-auto lg:px-8">
-                <div class="mx-auto max-w-2xl">
-                    <div class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
-                @can('admin')
-                    <div class="flex self-center justify-end space-x-4 mb-6">
-                        <form action="{{ route('post.destroy', $post) }}" method="post" onsubmit="return confirmDeletion()">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                class="rounded-md ring-1 ring-red-300 px-2.5 py-1.5 text-sm font-semibold text-red-300 shadow-sm hover:bg-red-100">
-                                Delete
-                            </button>
-                        </form>
-                        <button type="button"
-                            class="rounded-md ring-1 text-blue-300 ring-blue-300 px-2.5 py-1.5 text-sm font-semibold shadow-sm hover:bg-blue-100">
-                            <a href="{{ route('post.edit', $post) }}" class="">Edit</a>
-                        </button>
-                    </div>
-                @endcan
+        <div class="mx-auto lg:px-8">
+            <div class="mx-auto max-w-2xl">
+                <div class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
+                    @foreach ($posts as $post)
+                        @can('admin')
+                            <div class="flex self-center justify-end space-x-4 mb-6">
+                                <form action="{{ route('post.destroy', $post) }}" method="post"
+                                    onsubmit="return confirmDeletion()">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="rounded-md ring-1 ring-red-300 px-2.5 py-1.5 text-sm font-semibold text-red-300 shadow-sm hover:bg-red-100">
+                                        Delete
+                                    </button>
+                                </form>
+                                <button type="button"
+                                    class="rounded-md ring-1 text-blue-300 ring-blue-300 px-2.5 py-1.5 text-sm font-semibold shadow-sm hover:bg-blue-100">
+                                    <a href="{{ route('post.edit', $post) }}" class="">Edit</a>
+                                </button>
+                            </div>
+                        @endcan
                         <article class="flex max-w-xl flex-col items-start justify-between">
                             <div class="flex items-center gap-x-4 text-xs">
                                 <time datetime="2020-03-16"
@@ -51,9 +52,9 @@
                                 </div>
                             </div>
                         </article>
-                    </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </article>
 </x-app-layout>
