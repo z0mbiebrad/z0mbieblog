@@ -17,7 +17,7 @@
                     <div class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
                 @can('admin')
                     <div class="flex self-center justify-end space-x-4 mb-6">
-                        <form action="{{ route('post.destroy', $post) }}" method="post">
+                        <form action="{{ route('post.destroy', $post) }}" method="post" onsubmit="return confirmDeletion()">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
@@ -57,3 +57,8 @@
         @endforeach
     </article>
 </x-app-layout>
+<script>
+    function confirmDeletion() {
+        return confirm("Are you sure you want to delete this post? This action cannot be undone.");
+    }
+</script>
