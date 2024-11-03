@@ -6,14 +6,14 @@
         </div>
     @endif
 
-    <article class="transparent py-24 sm:py-32 w-5/6 sm:w-4/5 max-w-5xl mx-auto">
+    <article class="transparent py-24 sm:py-32 sm:w-4/5 max-w-5xl mx-auto">
         <div class="lg:w-4/5 lg:mx-auto mb-10">
             <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me</h2>
             <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
         </div>
 
         <div class="mx-auto lg:px-8">
-            <div class="mx-auto max-w-2xl space-y-16 border-t border-slate-300 pt-10 sm:pt-16">
+            <div class="mx-auto space-y-16 border-t border-slate-300 pt-10 sm:pt-16">
                 @foreach ($posts as $post)
                     @can('admin')
                         <div class="flex self-center justify-end space-x-4 mb-6">
@@ -38,9 +38,10 @@
                             </time>
                         </div>
 
-                        <div class="group relative prose prose-invert prose-headings:text-gray-200 prose-p:text-gray-200 prose-a:text-blue-400">
+                        <div 
+                            class="w-full sm:w-4/5 group relative prose prose-invert prose-headings:text-gray-200 prose-p:text-gray-200 prose-a:text-blue-400 prose-code:mx-auto prose-code:inline-block prose-code:text-left prose-code:m-0 prose-pre:p-0 prose-pre:m-0 prose-pre:text-left prose-code:w-11/12 prose-code:overflow-clip">
                             <h3 class="text-xl font-semibold text-gray-100">{{ $post->title }}</h3>
-                            <p class="mt-2 text-sm leading-6 text-gray-300 break-all">
+                            <p class="mt-2 text-sm leading-6 text-gray-300 break-all w-11/12">
                                 {!! $post->html !!}
                             </p>
                         </div>
