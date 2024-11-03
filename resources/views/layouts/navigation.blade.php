@@ -1,4 +1,4 @@
-<nav class="absolute inset-x-0 top-0 z-50">
+<nav class="block z-50 bg-slate-400 bg-opacity-20">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="https://github.com/z0mbiebrad" class="-m-1.5 p-1.5 flex items-center space-x-2">

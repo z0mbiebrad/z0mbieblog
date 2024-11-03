@@ -45,9 +45,8 @@
                             </p>
                         </div>
 
-                        <div class="relative mt-4 flex items-center gap-x-4 pb-10 pl-8">
+                        <div class="mt-4 flex items-center gap-x-4 pb-10 pl-8">
                             <p class="text-sm font-semibold text-gray-100">
-                                <span class="absolute inset-0"></span>
                                 <a href="https://github.com/z0mbiebrad">z0mbiebrad</a>
                             </p>
                         </div>
