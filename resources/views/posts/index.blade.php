@@ -39,7 +39,7 @@
                         </div>
 
                         <div 
-                            class="w-full sm:w-4/5 group relative prose prose-invert prose-headings:text-gray-200 prose-p:text-gray-200 prose-a:text-blue-400 prose-code:mx-auto prose-code:inline-block prose-code:text-left prose-code:m-0 prose-pre:p-0 prose-pre:m-0 prose-pre:text-left prose-code:w-11/12 prose-code:overflow-clip">
+                            class="w-full sm:w-4/5 group relative prose prose-invert prose-headings:text-gray-200 prose-p:text-gray-200 prose-a:text-blue-400 prose-code:mx-auto prose-code:inline-block prose-code:text-left prose-code:m-0 prose-pre:p-0 prose-pre:m-0 prose-pre:text-left prose-code:w-11/12">
                             <h3 class="text-xl font-semibold text-gray-100">{{ $post->title }}</h3>
                             <p class="mt-2 text-sm leading-6 text-gray-300 break-all w-11/12">
                                 {!! $post->html !!}
