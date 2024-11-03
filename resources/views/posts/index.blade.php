@@ -7,13 +7,13 @@
     @endif
 
     <article class="transparent py-24 sm:py-32 w-5/6 sm:w-4/5 max-w-5xl mx-auto">
-        <div>
+        <div class="lg:w-4/5 lg:mx-auto mb-10">
             <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me</h2>
             <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
         </div>
 
         <div class="mx-auto lg:px-8">
-            <div class="mx-auto max-w-2xl space-y-16 border-t border-gray-700 pt-10 sm:pt-16">
+            <div class="mx-auto max-w-2xl space-y-16 border-t border-slate-300 pt-10 sm:pt-16">
                 @foreach ($posts as $post)
                     @can('admin')
                         <div class="flex self-center justify-end space-x-4 mb-6">
@@ -31,7 +31,7 @@
                         </div>
                     @endcan
 
-                    <article class="flex max-w-xl flex-col items-start justify-between space-y-4">
+                    <article class="flex max-w-xl flex-col items-start justify-between space-y-4 border-b border-slate-300">
                         <div class="flex items-center gap-x-4 text-xs">
                             <time datetime="{{ $post->created_at }}" class="text-gray-400">
                                 {{ $post->created_at->format('Y-m-d') }}
@@ -45,10 +45,10 @@
                             </p>
                         </div>
 
-                        <div class="relative mt-4 flex items-center gap-x-4">
+                        <div class="relative mt-4 flex items-center gap-x-4 pb-10 pl-8">
                             <p class="text-sm font-semibold text-gray-100">
                                 <span class="absolute inset-0"></span>
-                                z0mbiebrad
+                                <a href="https://github.com/z0mbiebrad">z0mbiebrad</a>
                             </p>
                         </div>
                     </article>
