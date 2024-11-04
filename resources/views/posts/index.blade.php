@@ -7,13 +7,13 @@
     @endif
 
     <article class="transparent sm:py-32 sm:w-4/5 max-w-5xl sm:mx-auto mx-4">
-        <div class="lg:w-4/5 lg:mx-auto py-20">
+        <div class="lg:mx-auto py-20 lg:px-8">
             <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Code with me</h2>
             <p class="mt-2 text-lg leading-8 text-gray-300">Let's learn together!</p>
         </div>
 
         <div class="mx-auto lg:px-8">
-            <div class="mx-auto space-y-16 border-t border-slate-300 pt-16">
+            <div class="mx-auto space-y-16 border-t border-slate-300 pt-24">
                 @foreach ($posts as $post)
                     @can('admin')
                         <div class="flex self-center justify-end space-x-4 mb-6">
@@ -31,7 +31,7 @@
                         </div>
                     @endcan
 
-                    <article class="flex max-w-xl flex-col items-start justify-between space-y-4 border-b border-slate-300  prose-code:break-all">
+                    <article class="flex flex-col items-start justify-between space-y-4 border-b border-slate-300  prose-code:break-all">
                         <div class="flex items-center gap-x-4 text-xs">
                             <time datetime="{{ $post->created_at }}" class="text-gray-400">
                                 {{ $post->created_at->format('Y-m-d') }}
@@ -39,17 +39,15 @@
                         </div>
 
                         <div 
-                            class="w-full sm:w-4/5 group relative prose prose-invert prose-headings:text-gray-200 prose-p:text-gray-200 prose-a:text-blue-400 prose-code:mx-auto prose-code:inline-block prose-code:text-left prose-code:m-0 prose-pre:p-0 prose-pre:m-0 prose-pre:text-left prose-code:w-11/12">
+                            class="w-full sm:w-4/5 group relative prose prose-invert prose-headings:my-10 prose-headings:text-gray-200 prose-p:text-gray-200 prose-a:text-blue-400 prose-code:mx-auto prose-code:inline-block prose-code:text-left prose-code:m-0 prose-pre:p-0 prose-pre:m-0 prose-pre:text-left prose-code:w-11/12">
                             <p class="mt-2 text-sm leading-6 text-gray-300 break-all w-11/12">
                                 {!! $post->html !!}
                             </p>
                         </div>
 
-                        <div class="mt-4 flex items-center gap-x-4 pb-10 pl-8">
-                            <p class="text-sm font-semibold text-gray-100">
-                                <a href="https://github.com/z0mbiebrad">z0mbiebrad</a>
+                            <p class="text-sm font-semibold text-gray-100 flex justify-end w-full pb-4 pr-6">
+                                <a href="https://github.com/z0mbiebrad">- z0mbiebrad</a>
                             </p>
-                        </div>
                     </article>
                 @endforeach
             </div>
